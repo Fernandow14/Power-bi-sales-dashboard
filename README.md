@@ -160,7 +160,11 @@ O relatório foi dividido em cinco visões:
 
 ---
 
+## 📁 Arquivos do Projeto
 
+- [📊 Baixar Dashboard Power BI (.pbix)](dashboard/Power_bi_Vendas.pbix)
+- [📂 Base de Dados](data/simulador_vendas...xlsx)
+- [📐 Medidas DAX](dax/medidas-dax.md)
 ## 🔎 Principais insights
 
 A análise identificou:
