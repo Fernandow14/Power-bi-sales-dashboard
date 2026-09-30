@@ -179,6 +179,11 @@ Esses resultados devem ser interpretados no contexto deste projeto, que utiliza 
 - [📊 Baixar Dashboard Power BI (.pbix)](dashboard/Power_bi_Vendas.pbix)
 - [📂 Base de Dados](data/simulador_vendas...xlsx)
 - [📐 Medidas DAX](dax/medidas-dax.md)
+- [📘 Documentação Técnica](docs/Documentacao_Tecnica_Projeto_BI_PowerBI_v1.1.docx)
+- [📄 Resumo Executivo](docs/Resumo_Executivo_Projeto_BI_PowerBI_v1.1.docx)
+
+---
+
 ## 🔎 Principais insights
 
 ---
