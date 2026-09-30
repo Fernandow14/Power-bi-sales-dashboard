@@ -138,6 +138,29 @@ O relatório foi dividido em cinco visões:
 
 ---
 
+## 📸 Visualizações do Dashboard
+
+### Visão Executiva
+![Visão Executiva](images/Financeiro.png)
+
+### Vendas Geográficas
+![Vendas Geográficas](images/Geografica.png)
+
+### Vendedores
+![Vendedores](images/Vendedores.png)
+
+### Clientes
+![Clientes](images/Cliente.png)
+
+### Status e Canais
+![Status e Canais](images/Canais.png)
+
+### Modelo de Dados
+![Modelo Estrela](images/Esquema_estrela.png)
+
+---
+
+
 ## 🔎 Principais insights
 
 A análise identificou:
