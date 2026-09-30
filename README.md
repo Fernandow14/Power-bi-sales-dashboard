@@ -13,8 +13,6 @@ Construir um dashboard analítico capaz de apoiar a análise do desempenho comer
 - Canais de venda
 - Status das vendas
 
-O projeto foi desenvolvido como um **MVP de Business Intelligence** para fins de estudo e portfólio.
-
 ---
 
 ## 🛠️ Tecnologias utilizadas
@@ -43,120 +41,136 @@ A base original foi disponibilizada em Excel contendo dados de:
 - Estados
 - Regiões
 
-### 2. ETL com Power Query
+### 2. Tratamento dos Dados
 
-Foi criada uma camada de staging para preservar os dados de origem.
+Os dados foram preparados no **Power Query**, utilizando uma camada de staging para preservar as fontes originais e organizar o processo de transformação.
 
 Principais tratamentos realizados:
 
-- Tipagem de dados
-- Padronização de campos
-- Mesclagem de consultas
-- Criação das dimensões
-- Criação da tabela fato
-- Tratamento das chaves de relacionamento
+- Ajuste de tipos de dados
+- Padronização das informações
+- Tratamento das tabelas auxiliares
+- Mesclagem de estados e regiões
+- Integração de categorias e fornecedores
+- Preparação das tabelas fato e dimensão
 
-### 3. Modelagem de Dados
+### 3. Modelagem Dimensional
 
-O modelo foi estruturado utilizando **Star Schema**.
+Foi implementado um modelo dimensional no formato **Star Schema**, tendo a tabela `FATO_VENDAS` como tabela central.
 
-Tabelas principais:
+Principais dimensões:
 
-- `FATO_VENDAS`
 - `Dim_Cliente`
 - `Dim_Vendedores`
 - `Dim_Produtos`
 - `Dim_Estado`
 
-Os relacionamentos foram configurados no padrão:
-
-**1 : N — Dimensão → Fato**
+As relações foram configuradas no padrão **1:N**, com propagação de filtro das dimensões para a tabela fato.
 
 ---
 
-## 📐 Principais medidas DAX
+## ⭐ Modelo de Dados
 
-Foram desenvolvidos indicadores como:
+![Modelo Estrela](images/Esquema_estrela.png)
+
+---
+## 📐 Principais Métricas DAX
+
+Entre as principais métricas desenvolvidas estão:
 
 - Receita Total
-- Ticket Médio
 - Quantidade Vendida
 - Vendas Concluídas
+- Ticket Médio
 - Total de Vendas
 - Vendas Canceladas
 - Taxa de Cancelamento
 - Receita Cancelada
-- Meta Mensal
+- Receita Pendente
+- Meta por Vendedor
 - Meta do Período
 - Percentual de Atingimento
 - Ranking de Vendedores
+- Total de Clientes
+
+Todas as medidas podem ser consultadas em:
+
+👉 [Medidas DAX do Projeto](dax/medidas-dax.md)
 
 ---
 
 ## 📊 Estrutura do Dashboard
 
-O relatório foi dividido em cinco visões:
+O dashboard foi dividido em cinco áreas analíticas.
 
-### 01 — Visão Executiva
+### 1. Visão Executiva
 
-- Receita Total
-- Ticket Médio
-- Quantidade Vendida
-- Vendas Concluídas
-- Evolução mensal da receita
-- Top 5 produtos por receita
-- Participação da receita por categoria
+Apresenta os principais KPIs do negócio e uma visão consolidada do desempenho comercial.
 
-### 02 — Vendas Geográficas
+![Visão Executiva](images/Financeiro.png)
 
-- Receita por região
-- Receita por estado
-- Distribuição geográfica das vendas
-- Estado com maior receita
+### 2. Análise Geográfica
 
-### 03 — Vendedores
+Permite analisar o desempenho das vendas por região e estado.
 
-- Ranking de vendedores
-- Receita por vendedor
-- Meta do período
-- Percentual de atingimento
-- Análise individual de desempenho
+![Análise Geográfica](images/Geografica.png)
 
-### 04 — Clientes
+### 3. Vendedores
 
-- Receita por segmento
-- Pessoa Física x Pessoa Jurídica
-- Top 10 clientes por receita
+Apresenta o ranking dos vendedores, receita gerada, metas comerciais e percentual de atingimento.
 
-### 05 — Status e Canais
+![Vendedores](images/Vendedores.png)
 
-- Total de vendas
-- Vendas canceladas
-- Taxa de cancelamento
-- Distribuição por status
-- Receita por canal de venda e região
+### 4. Clientes
+
+Analisa o perfil dos clientes, participação entre Pessoa Física e Pessoa Jurídica e os principais clientes por receita.
+
+![Clientes](images/Cliente.png)
+
+### 5. Status e Canais
+
+Apresenta a distribuição das vendas por status e o desempenho dos diferentes canais comerciais.
+
+![Status e Canais](images/Canais.png)
 
 ---
 
-## 📸 Visualizações do Dashboard
+## 📈 Principais Indicadores
 
-### Visão Executiva
-![Visão Executiva](images/Financeiro.png)
+| Indicador | Resultado |
+|---|---:|
+| Receita Total Concluída | R$ 384.454,10 |
+| Ticket Médio | R$ 5.126,05 |
+| Quantidade Vendida | 356 |
+| Total de Vendas | 120 |
+| Vendas Concluídas | 75 |
+| Vendas Pendentes | 24 |
+| Vendas Canceladas | 21 |
+| Taxa de Cancelamento | 17,50% |
+| Período analisado | Jan/2025 a Set/2025 |
+| Meses considerados | 9 |
+| Meta acumulada do período | R$ 3.870.000,00 |
+| Atingimento consolidado da meta | 9,93% |
 
-### Vendas Geográficas
-![Vendas Geográficas](images/Geografica.png)
+---
 
-### Vendedores
-![Vendedores](images/Vendedores.png)
+## 💡 Insights Identificados
 
-### Clientes
-![Clientes](images/Cliente.png)
+A análise demonstrou uma receita concluída de aproximadamente **R$ 384,5 mil**, com ticket médio superior a **R$ 5,1 mil**.
 
-### Status e Canais
-![Status e Canais](images/Canais.png)
+Das 120 vendas registradas:
 
-### Modelo de Dados
-![Modelo Estrela](images/Esquema_estrela.png)
+- **62,5% foram concluídas**
+- **20% permaneceram pendentes**
+- **17,5% foram canceladas**
+
+As vendas pendentes e canceladas representam um volume financeiro relevante que pode ser analisado para identificação de oportunidades comerciais e possíveis causas de perda de receita.
+
+Também foi identificada uma forte concentração da receita em poucos produtos, com os cinco principais produtos representando aproximadamente **89,5% da receita concluída**.
+
+O mês de maio apresentou destaque no período, concentrando aproximadamente **26,7% da receita concluída**.
+
+Esses resultados devem ser interpretados no contexto deste projeto, que utiliza uma **base de dados simulada**.
 
 ---
 
@@ -166,18 +180,6 @@ O relatório foi dividido em cinco visões:
 - [📂 Base de Dados](data/simulador_vendas...xlsx)
 - [📐 Medidas DAX](dax/medidas-dax.md)
 ## 🔎 Principais insights
-
-A análise identificou:
-
-- **R$ 384,4 mil** em receita proveniente de vendas concluídas.
-- **R$ 5,1 mil** de ticket médio.
-- Das 120 vendas registradas, **62,5% foram concluídas**.
-- **17,5% das vendas foram canceladas**.
-- **20% permaneceram pendentes**.
-- Vendas canceladas e pendentes representam aproximadamente **R$ 336 mil em valor potencial não realizado**.
-- Os cinco produtos com maior receita concentram aproximadamente **89,5% do faturamento**.
-- Maio apresentou o maior resultado mensal, representando aproximadamente **26,7% da receita concluída do período**.
-- O atingimento consolidado da meta acumulada de 9 meses foi de aproximadamente **9,93%**.
 
 ---
 
