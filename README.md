@@ -127,7 +127,7 @@ Analisa o perfil dos clientes, participação entre Pessoa Física e Pessoa Jur�
 
 ![Clientes](images/Cliente.png)
 
-### 5. Status e Canais
+### 5. Canais
 
 Apresenta a distribuição das vendas por status e o desempenho dos diferentes canais comerciais.
 
